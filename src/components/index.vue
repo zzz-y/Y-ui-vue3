@@ -1,5 +1,8 @@
 <template>
-<div>
-    lalalal
-</div>
+  <div>lalalal</div>
 </template>
+<script>
+export default {
+
+}
+</script>

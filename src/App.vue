@@ -1,14 +1,14 @@
 <template>
-<index msg="Hello Vue 3.0 + Vite" />
+<div>
+  <router-link to="/">index</router-link>
+  <router-link to="/to">to</router-link>
+</div>
+<router-view />
 </template>
 
 <script>
-import index from "./components/index.vue";
-
 export default {
-    name: "App",
-    components: {
-        index,
-    },
+  name: "App",
+  components: {},
 };
 </script>
