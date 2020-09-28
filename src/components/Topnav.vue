@@ -1,13 +1,14 @@
 <template>
   <div class="topnav">
-    <div class="logo"
-         @click="toggleMenu">LOGO</div>
+    <div class="logo">LOGO</div>
     <ul class="menu">
       <router-link tag="li"
                    to="/">菜单1</router-link>
       <router-link tag="li"
                    to="/doc">菜单2</router-link>
     </ul>
+    <span class="toggleAside"
+          @click="toggleMenu"></span>
   </div>
 </template>
 
@@ -15,8 +16,7 @@
 import { inject, Ref } from "vue";
 export default {
   setup() {
-    const asideVisible = inject<Ref<boolean>>("side");
-    console.log("aaa", asideVisible.value);
+    const asideVisible = inject<Ref<boolean>>("asideVisible");
     const toggleMenu = () => {
       asideVisible.value = !asideVisible.value;
     };
@@ -32,6 +32,8 @@ export default {
   padding: 16px;
   position: relative;
   z-index: 10;
+  align-items: center;
+  justify-content: center;
   > .logo {
     max-width: 6em;
     margin-right: auto;
@@ -42,6 +44,28 @@ export default {
     flex-wrap: nowrap;
     > li {
       margin: 0 1em;
+    }
+  }
+  .toggleAside {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: red;
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+  }
+  @media (max-width: 500px) {
+    > .menu {
+      display: none;
+    }
+    > .logo {
+      margin: 0 auto;
+    }
+    > .toggleAside {
+      display: inline-block;
     }
   }
 }

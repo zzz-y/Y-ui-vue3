@@ -8,8 +8,9 @@ export default {
   name: "App",
   components: {},
   setup() {
-    const asideVisible = ref(false);
-    provide("side", asideVisible);
+    const width = document.documentElement.clientWidth;
+    const asideVisible = ref(width <= 500 ? false : true);
+    provide("asideVisible", asideVisible);
   },
 };
 </script>
