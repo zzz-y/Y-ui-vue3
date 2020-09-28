@@ -1,14 +1,15 @@
 <template>
-<div>
-  <router-link to="/">index</router-link>
-  <router-link to="/to">to</router-link>
-</div>
-<router-view />
+  <router-view />
 </template>
 
-<script>
+<script lang="ts">
+import { provide, ref } from "vue";
 export default {
   name: "App",
   components: {},
+  setup() {
+    const asideVisible = ref(false);
+    provide("side", asideVisible);
+  },
 };
 </script>
